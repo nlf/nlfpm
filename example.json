@@ -1,0 +1,17 @@
+{
+    "servers": [{
+        "port": 8000,
+        "options": {
+            "labels": ["nlfpm"]
+        }
+    }],
+    "plugins": {
+        "../../../": {
+            "registries": {
+                "public": "registry.npmjs.org",
+                "private": "privatenpm"
+            },
+            "ssl": false
+        }
+    }
+}

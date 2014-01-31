@@ -1,0 +1,25 @@
+{
+  "name": "nlfpm",
+  "version": "0.0.1",
+  "description": "a private npm registry that also transparently caches and proxies to the public registry",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nlf/nlfpm.git"
+  },
+  "keywords": [
+    "npm",
+    "proxy",
+    "cache",
+    "private"
+  ],
+  "author": "Nathan LaFreniere <quitlahok@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nlf/nlfpm/issues"
+  },
+  "homepage": "https://github.com/nlf/nlfpm",
+  "dependencies": {
+    "hapi": "~2.1.2"
+  }
+}
