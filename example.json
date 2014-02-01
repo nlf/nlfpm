@@ -6,19 +6,23 @@
         }
     }],
     "plugins": {
+        "good": {
+            "leakDetection": true,
+            "subscribers": {
+                "console": ["ops", "request", "log", "error"]
+            }
+        },
         "../../../": {
             "registries": {
-                "public": "registry.npmj.org",
+                "public": "registry.npmjs.org",
                 "private": "localhost:8000"
             },
             "ssl": false,
-            "cache": {
-                "redis": {
-                    "host": "localhost",
-                    "port": 6379
-                },
-                "dir": "../../../cache"
-            }
+            "redis": {
+                "host": "localhost",
+                "port": 6379
+            },
+            "path": "./cache"
         }
     }
 }
