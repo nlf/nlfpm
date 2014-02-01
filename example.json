@@ -8,10 +8,17 @@
     "plugins": {
         "../../../": {
             "registries": {
-                "public": "registry.npmjs.org",
-                "private": "privatenpm"
+                "public": "registry.npmj.org",
+                "private": "localhost:8000"
             },
-            "ssl": false
+            "ssl": false,
+            "cache": {
+                "redis": {
+                    "host": "localhost",
+                    "port": 6379
+                },
+                "dir": "../../../cache"
+            }
         }
     }
 }

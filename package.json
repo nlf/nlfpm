@@ -20,6 +20,14 @@
   },
   "homepage": "https://github.com/nlf/nlfpm",
   "dependencies": {
-    "hapi": "~2.1.2"
+    "hapi": "~2.1.2",
+    "nipple": "~2.2.0",
+    "hoek": "~1.4.1",
+    "redis": "~0.10.0",
+    "mkdirp": "~0.3.5",
+    "hiredis": "~0.1.16"
+  },
+  "scripts": {
+    "start": "./node_modules/.bin/hapi -c example.json"
   }
 }
