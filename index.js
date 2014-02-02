@@ -23,47 +23,37 @@ exports.register = function (plugin, options, next) {
     // select the 'nlfpm' tag in case someone is using this server for more than one thing
     nlfpm = plugin.select('nlfpm');
 
-    var defaultHandler = {
-        host: options.registries.public,
-        port: 443,
-        protocol: 'https',
-        passThrough: true,
-    };
-
-    var cacheHandler = Hoek.applyToDefaults(defaultHandler, { postResponse: cache.handler });
-
     // add our routes
     nlfpm.route({
         method: 'GET',
         path: '/{package}/{version?}',
-        handler: {
-            proxy: cacheHandler
-        }
+        handler: cache.handler
     });
 
     nlfpm.route({
         method: 'GET',
         path: '/{package}/-/{tarball}',
-        handler: {
-            proxy: cacheHandler
-        }
+        handler: cache.handler
     });
 
     nlfpm.route({
         method: 'GET',
         path: '/-/all/{extra?}',
-        handler: {
-            proxy: cacheHandler
-        }
+        handler: cache.handler
     });
 
-    nlfpm.route({
-        method: 'POST',
-        path: '/{params*}',
-        handler: {
-            proxy: defaultHandler
-        }
-    });
+    // nlfpm.route({
+    //     method: 'POST',
+    //     path: '/{params*}',
+    //     handler: {
+    //         proxy: {
+    //             host: options.registries.public,
+    //             port: 443,
+    //             protocol: 'https',
+    //             passThrough: true
+    //         }
+    //     }
+    // });
 
     nlfpm.route({
         method: 'PUT',
