@@ -67,7 +67,18 @@ exports.register = function (plugin, options, next) {
 
     nlfpm.route({
         method: 'PUT',
-        path: '/{params*}',
+        path: '/_private/{package}',
+        handler: cache.privatePutHandler,
+        config: {
+            payload: {
+                allow: 'application/json'
+            }
+        }
+    });
+
+    nlfpm.route({
+        method: 'PUT',
+        path: '/{package}',
         handler: cache.putHandler,
         config: {
             payload: {
