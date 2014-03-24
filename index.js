@@ -78,8 +78,8 @@ exports.register = function (plugin, options, next) {
     });
 
     nlfpm.route({
-        method: 'GET',
-        path: '/-/user/{user}',
+        method: ['GET', 'PUT'],
+        path: '/-/user/{user}/{extra*}',
         handler: {
             proxy: {
                 host: options.registries.public,
