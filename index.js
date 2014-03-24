@@ -77,5 +77,18 @@ exports.register = function (plugin, options, next) {
         }
     });
 
+    nlfpm.route({
+        method: 'GET',
+        path: '/-/user/{user}',
+        handler: {
+            proxy: {
+                host: options.registries.public,
+                port: 443,
+                protocol: 'https',
+                passThrough: true
+            }
+        }
+    });
+
     cache.primeSearch(plugin, next);
 };
