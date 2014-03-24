@@ -23,6 +23,14 @@ exports.register = function (plugin, options, next) {
     // select the 'nlfpm' tag in case someone is using this server for more than one thing
     nlfpm = plugin.select('nlfpm');
 
+    nlfpm.ext('onPreResponse', function (request, next) {
+        if (request.response.message) {
+            request.response.reason = request.response.message;
+        }
+
+        next();
+    });
+
     // add our routes
     nlfpm.route({
         method: 'GET',
@@ -41,19 +49,6 @@ exports.register = function (plugin, options, next) {
         path: '/-/all/{extra?}',
         handler: cache.handler
     });
-
-    // nlfpm.route({
-    //     method: 'POST',
-    //     path: '/{params*}',
-    //     handler: {
-    //         proxy: {
-    //             host: options.registries.public,
-    //             port: 443,
-    //             protocol: 'https',
-    //             passThrough: true
-    //         }
-    //     }
-    // });
 
     nlfpm.route({
         method: 'PUT',
