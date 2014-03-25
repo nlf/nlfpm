@@ -73,6 +73,12 @@ exports.register = function (plugin, options, next) {
     });
 
     nlfpm.route({
+        method: 'PUT',
+        path: '/{package}/-rev/{revid}',
+        handler: cache.putRevHandler
+    });
+
+    nlfpm.route({
         method: ['GET', 'PUT'],
         path: '/-/user/{user}/{extra*}',
         handler: {
@@ -83,6 +89,12 @@ exports.register = function (plugin, options, next) {
                 passThrough: true
             }
         }
+    });
+
+    nlfpm.route({
+        method: 'DELETE',
+        path: '/{package}/-/{tarball}/-rev/{version}',
+        handler: cache.deleteHandler
     });
 
     cache.primeSearch(plugin, next);
