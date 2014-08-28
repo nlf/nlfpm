@@ -7,7 +7,6 @@
     }],
     "plugins": {
         "good": {
-            "leakDetection": true,
             "subscribers": {
                 "console": ["ops", "request", "log", "error"]
             }

@@ -1,6 +1,6 @@
 {
   "name": "nlfpm",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "a private npm registry that also transparently caches and proxies to the public registry",
   "main": "index.js",
   "repository": {
@@ -20,17 +20,17 @@
   },
   "homepage": "https://github.com/nlf/nlfpm",
   "dependencies": {
-    "hapi": "^4.0.0",
-    "nipple": "~2.5.0",
-    "hoek": "~2.0.0",
-    "redis": "~0.10.0",
-    "mkdirp": "~0.3.5",
-    "hiredis": "~0.1.16"
+    "hapi": "6.x.x",
+    "wreck": "3.x.x",
+    "hoek": "2.x.x",
+    "redis": "0.12.x",
+    "mkdirp": "0.5.x",
+    "hiredis": "0.1.x"
   },
   "scripts": {
     "start": "./node_modules/.bin/hapi -c example.json"
   },
   "devDependencies": {
-    "good": "~2.0.0"
+    "good": "2.x.x"
   }
 }

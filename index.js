@@ -99,3 +99,7 @@ exports.register = function (plugin, options, next) {
 
     cache.primeSearch(plugin, next);
 };
+
+exports.register.attributes = {
+    pkg: require('./package.json')
+};
